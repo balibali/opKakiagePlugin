@@ -1,0 +1,12 @@
+options:
+  charset: utf8
+actAs: [Timestampable]
+
+Kakiage:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true }
+    member_id: { type: integer(4), notnull: true }
+    body: { type: string, notnull: true }
+    target_date: { type: date, notnull: true }
+  relations:
+    Member: { onDelete: cascade }
