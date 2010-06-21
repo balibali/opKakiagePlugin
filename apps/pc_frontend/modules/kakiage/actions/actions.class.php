@@ -46,7 +46,7 @@ class kakiageActions extends sfActions
       $this->redirect('kakiage/index');
     }
 
-    $this->setTemplate('Edit');
+    $this->setTemplate('edit');
   }
 
   protected function getForm(sfWebRequest $request)
