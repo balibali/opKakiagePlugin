@@ -26,7 +26,22 @@ class kakiageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $this->list = Doctrine::getTable('Kakiage')->findByTargetDate(date('Y-m-d'));
+    $year  = (int)$request['year'];
+    $month = (int)$request['month'];
+    $day   = (int)$request['day'];
+
+    if ($year && $month && $day)
+    {
+      $this->forward404Unless(checkdate($month, $day, $year), 'Invalid date format');
+
+      $this->date = date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
+    }
+    else
+    {
+      $this->date = date('Y-m-d');
+    }
+
+    $this->list = Doctrine::getTable('Kakiage')->findByTargetDate($this->date);
   }
 
   public function executeEdit(sfWebRequest $request)
