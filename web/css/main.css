@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+#kakiages .prevNextLinkLine {
+  margin-bottom: 8px;
+}
+#kakiages .prevNextLinkLine p.prev,
+#kakiages .prevNextLinkLine p.next {
+  display: inline-block;
+  margin-left: 8px;
+  /zoom: 1;
+  /display: inline;
+}
+#kakiages .prevNextLinkLine p.prev a,
+#kakiages .prevNextLinkLine p.next a {
+  display: block;
+  padding: 4px 8px;
+  border: 1px solid #090;
+  background: #cfc;
+}
+
+#kakiages #bottomEditLink {
+  display: inline-block;
+  /zoom: 1;
+  /display: inline;
+}
+#kakiages #topEditLink a,
+#kakiages #bottomEditLink a {
+  display: block;
+  padding: 4px 8px;
+  border: 1px solid #900;
+  background: #fcc;
+}
+#kakiages #topEditLink {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+#kakiages #bottomEditLink {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+#kakiages {
+  position: relative;
+  padding: 0 0 3em;
+  word-wrap: break-word;
+  letter-spacing: -0.5em;
+  word-spacing: -0.5em;
+}
+#kakiages * {
+  vertical-align: top;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+#kakiages .kakiage {
+  display: inline-block;
+  overflow: auto;
+  position: relative;
+  width: 50%;
+  height: 300px;
+  padding-bottom: 8px;
+  border-width: 1px 0 0;
+  border-style: solid;
+  border-color: #999;
+  /zoom: 1;
+  /display: inline;
+}
+#kakiages .kakiage:nth-of-type(4n),
+#kakiages .kakiage:nth-of-type(4n+3) {
+  background: #ffffff;
+}
+#kakiages .kakiage:nth-of-type(4n+1),
+#kakiages .kakiage:nth-of-type(4n+2) {
+  background: #f0f0f0;
+}
+#kakiages .kakiage .editLink {
+  float: right;
+  margin: 8px;
+}
+d#kakiages .kakiage .editLink {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  background: #f00;
+}
+#kakiages .kakiage .kakiage_member {
+  display: inline-block;
+  margin: 8px 8px 0;
+  /zoom: 1;
+  /display: inline;
+}
+#kakiages .kakiage .kakiage_member a {
+  display: block;
+  padding: 4px 8px;
+  border: 1px solid #990;
+  background: #ffc;
+}
+#kakiages .kakiage .kakiage_updated_at {
+  margin: 0 4px;
+  padding: 4px;
+  border-bottom: 1px dotted #099;
+  text-align: right;
+}
+#kakiages .kakiage .kakiage_body {
+  padding: 8px;
+  line-height: 1.4;
+}
