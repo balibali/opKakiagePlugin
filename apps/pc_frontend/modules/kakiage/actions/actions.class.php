@@ -26,34 +26,22 @@ class kakiageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $year  = (int)$request['year'];
-    $month = (int)$request['month'];
-    $day   = (int)$request['day'];
-
-    if ($year && $month && $day)
-    {
-      $this->forward404Unless(checkdate($month, $day, $year), 'Invalid date format');
-
-      $this->date = date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
-    }
-    else
-    {
-      $this->date = date('Y-m-d');
-    }
-
+    $this->date = checkDateForRequest($request);
     $this->list = Doctrine::getTable('Kakiage')->findByTargetDate($this->date);
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->form = $this->getForm($request);
+    $this->date = checkDateForRequest($request);
+    $this->form = $this->getForm($request, $this->date);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->form = $this->getForm($request);
-    $this->form->bind($request->getParameter($this->form->getName()));
+    $this->date = checkDateForRequest($request);
+    $this->form = $this->getForm($request, $this->date);
 
+    $this->form->bind($request->getParameter($this->form->getName()));
     if ($this->form->isValid())
     {
       $this->form->save();
@@ -64,19 +52,40 @@ class kakiageActions extends sfActions
     $this->setTemplate('edit');
   }
 
-  protected function getForm(sfWebRequest $request)
+  protected function getForm(sfWebRequest $request, $date)
   {
     $kakiage = Doctrine::getTable('Kakiage')
       ->findOneByTargetDateAndMemberId(
-          date('Y-m-d'),
+          $date,
           $this->getUser()->getMemberId());
 
     if (!$kakiage)
     {
       $kakiage = new Kakiage();
       $kakiage->setMemberId($this->getUser()->getMemberId());
+      $kakiage->setTargetDate($date);
     }
 
     return new KakiageForm($kakiage);
+  }
+
+  protected function checkDateForRequest(sfWebRequest $request)
+  {
+    $year  = (int)$request['year'];
+    $month = (int)$request['month'];
+    $day   = (int)$request['day'];
+
+    if ($year && $month && $day)
+    {
+      $this->forward404Unless(checkdate($month, $day, $year), 'Invalid date format');
+
+      $date = date('Y-m-d', mktime(0, 0, 0, $month, $day, $year));
+    }
+    else
+    {
+      $date = date('Y-m-d');
+    }
+
+    return $date;
   }
 }

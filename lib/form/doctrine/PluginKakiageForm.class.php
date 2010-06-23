@@ -15,10 +15,8 @@ abstract class PluginKakiageForm extends BaseKakiageForm
     parent::setup();
 
     unset($this['id']);
-    $this->useFields(array('target_date', 'body'));
+    $this->useFields(array('body'));
 
     $this->widgetSchema['body'] = new opWidgetFormRichTextareaOpenPNE();
-
-    $this->setDefault('target_date', date('Y-m-d'));
   }
 }
