@@ -26,19 +26,19 @@ class kakiageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $this->date = checkDateForRequest($request);
+    $this->date = $this->checkDateForRequest($request);
     $this->list = Doctrine::getTable('Kakiage')->findByTargetDate($this->date);
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->date = checkDateForRequest($request);
+    $this->date = $this->checkDateForRequest($request);
     $this->form = $this->getForm($request, $this->date);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->date = checkDateForRequest($request);
+    $this->date = $this->checkDateForRequest($request);
     $this->form = $this->getForm($request, $this->date);
 
     $this->form->bind($request->getParameter($this->form->getName()));
