@@ -46,7 +46,7 @@ class kakiageActions extends sfActions
     {
       $this->form->save();
 
-      $this->redirect('@kakiage_index');
+      $this->redirect('@kakiage_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($this->date)));
     }
 
     $this->setTemplate('edit');
