@@ -5,3 +5,19 @@ kakiage_date:
     year:  "[12][0-9]{3}"
     month: "(0?[1-9])|(1[0-2])"
     day:   "(0?[1-9])|([12][0-9])|(3[01])"
+
+kakiage_index:
+  url: /kakiage
+  param: { module: kakiage, action: index }
+
+kakiage_edit:
+  url: /kakiage/edit
+  param: { module: kakiage, action: edit }
+
+kakiage_update:
+  url: /kakiage/update
+  param: { module: kakiage, action: update }
+
+kakiage_nodefaults:
+  url: /kakiage/*
+  param: { module: default, action: error }

@@ -58,7 +58,7 @@ class kakiageActions extends sfActions
     {
       $this->form->save();
 
-      $this->redirect('kakiage/index');
+      $this->redirect('@kakiage_index');
     }
 
     $this->setTemplate('edit');
