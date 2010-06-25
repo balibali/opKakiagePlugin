@@ -20,5 +20,6 @@
 <?php endforeach ?>
 
 <div id="bottomEditLink" class="editLink"><?php echo link_to(__('Edit'), '@kakiage_edit_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($date))) ?></div>
+<div id="bottomWeekLink" class="weekLink"><?php echo link_to(__('Week'), '@kakiage_week') ?></div>
 
 </div>

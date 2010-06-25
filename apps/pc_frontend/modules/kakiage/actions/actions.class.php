@@ -30,6 +30,11 @@ class kakiageActions extends sfActions
     $this->list = Doctrine::getTable('Kakiage')->findByTargetDate($this->date);
   }
 
+  public function executeWeek(sfWebRequest $request)
+  {
+    $this->list = Doctrine::getTable('Kakiage')->getWeekly($this->getUser()->getMemberId());
+  }
+
   public function executeEdit(sfWebRequest $request)
   {
     $this->date = $this->checkDateForRequest($request);

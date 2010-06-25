@@ -7,13 +7,23 @@
  */
 class PluginKakiageTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object PluginKakiageTable
-     */
-    public static function getInstance()
-    {
-        return Doctrine_Core::getTable('PluginKakiage');
-    }
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object PluginKakiageTable
+   */
+  public static function getInstance()
+  {
+    return Doctrine_Core::getTable('PluginKakiage');
+  }
+
+  public function getWeekly($memberId)
+  {
+    return $this->createQuery()
+      ->where('member_id = ?', $memberId)
+      ->andWhere('target_date <= ?', date('Y-m-d'))
+      ->andWhere('target_date > ?', date('Y-m-d', strtotime('-1 week')))
+      ->orderBy('target_date')
+      ->execute();
+  }
 }
