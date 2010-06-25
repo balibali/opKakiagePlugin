@@ -11,7 +11,7 @@ kakiage_index:
   param: { module: kakiage, action: index }
 
 kakiage_week:
-  url: /kakiage
+  url: /kakiage/week
   param: { module: kakiage, action: week }
 
 kakiage_edit_date:
