@@ -10,3 +10,7 @@
 <?php endforeach ?>
 
 </div>
+
+<div class="parts">
+<?php echo link_to(__('Index'), '@kakiage_index') ?>
+</div>
