@@ -26,4 +26,14 @@ class PluginKakiageTable extends Doctrine_Table
       ->orderBy('target_date')
       ->execute();
   }
+
+  public function getPrevious($memberId, $date)
+  {
+    return $this->createQuery()
+      ->where('member_id = ?', $memberId)
+      ->andWhere('target_date < ?', $date)
+      ->orderBy('target_date DESC')
+      ->limit(1)
+      ->fetchOne();
+  }
 }

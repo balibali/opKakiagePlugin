@@ -39,6 +39,8 @@ class kakiageActions extends sfActions
   {
     $this->date = $this->checkDateForRequest($request);
     $this->form = $this->getForm($request, $this->date);
+
+    $this->previous = Doctrine::getTable('Kakiage')->getPrevious($this->getUser()->getMemberId(), $this->date);
   }
 
   public function executeUpdate(sfWebRequest $request)

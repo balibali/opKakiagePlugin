@@ -106,3 +106,7 @@ d#kakiages .kakiage .editLink {
   padding: 8px;
   line-height: 1.4;
 }
+
+textarea.kakiage_body {
+  width: 98%;
+}
