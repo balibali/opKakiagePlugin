@@ -22,7 +22,7 @@ class PluginKakiageTable extends Doctrine_Table
     return $this->createQuery()
       ->where('member_id = ?', $memberId)
       ->andWhere('target_date <= ?', date('Y-m-d'))
-      ->andWhere('target_date > ?', date('Y-m-d', strtotime('-1 week')))
+      ->andWhere('target_date > ?', date('Y-m-d', strtotime('-1 week -1 day')))
       ->orderBy('target_date')
       ->execute();
   }
