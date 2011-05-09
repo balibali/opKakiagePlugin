@@ -133,7 +133,7 @@ textarea.kakiage_body {
 }
 
 #kakiageRecent #kakiages {
-  counter-recet: kakiage;
+  counter-reset: kakiage;
 }
 #kakiageRecent #kakiages .kakiage {
   counter-increment: kakiage;
