@@ -40,6 +40,27 @@
   bottom: 0;
   left: 10px;
 }
+#kakiages #bottomLink {
+  padding: 4px 0;
+  border-top: 1px solid #999;
+}
+#kakiages #bottomLink li,
+#kakiages #bottomLink li a {
+  display: inline-block;
+  /display: inline;
+  /zoom: 1;
+}
+#kakiages #bottomLink li a {
+  padding: 4px 8px;
+}
+#kakiages #bottomLink #bottomWeekLink a {
+  border: 1px solid #960;
+  background: #fc0;
+}
+#kakiages #bottomLink #bottomRecentLink a {
+  border: 1px solid #009;
+  background: #ccf;
+}
 
 #kakiages {
   position: relative;
@@ -66,7 +87,7 @@
   /zoom: 1;
   /display: inline;
 }
-#kakiages .kakiage:nth-of-type(4n),
+#kakiages .kakiage:nth-of-type(4n+0),
 #kakiages .kakiage:nth-of-type(4n+3) {
   background: #ffffff;
 }
@@ -109,4 +130,23 @@ d#kakiages .kakiage .editLink {
 
 textarea.kakiage_body {
   width: 98%;
+}
+
+#kakiageRecent #kakiages {
+  counter-recet: kakiage;
+}
+#kakiageRecent #kakiages .kakiage {
+  counter-increment: kakiage;
+  position: relative;
+}
+#kakiageRecent #kakiages .kakiage:before {
+  content: counter(kakiage);
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 4px;
+  background: #ff0;
+  /zoom: 1;
+  /display: inline;
 }

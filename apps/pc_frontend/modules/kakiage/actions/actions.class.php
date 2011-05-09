@@ -35,6 +35,16 @@ class kakiageActions extends sfActions
     $this->list = Doctrine::getTable('Kakiage')->getWeekly($this->getUser()->getMemberId());
   }
 
+  public function executeRecent(sfWebRequest $request)
+  {
+    $count = null;
+    if (0 < (int)$request['count'])
+    {
+      $count = (int)$request['count'];
+    }
+    $this->list = Doctrine::getTable('Kakiage')->getRecently($this->getUser()->getMemberId(), $count);
+  }
+
   public function executeEdit(sfWebRequest $request)
   {
     $this->date = $this->checkDateForRequest($request);
