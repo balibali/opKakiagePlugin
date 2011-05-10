@@ -14,6 +14,10 @@ kakiage_week:
   url: /kakiage/week
   param: { module: kakiage, action: week }
 
+kakiage_recent:
+  url: /kakiage/recent
+  param: { module: kakiage, action: recent }
+
 kakiage_edit_date:
   url: /kakiage/edit/:year/:month/:day
   param: { module: kakiage, action: edit }

@@ -27,6 +27,34 @@ class PluginKakiageTable extends Doctrine_Table
       ->execute();
   }
 
+  public function getRecently($memberId, $count = null)
+  {
+    if (null === $count)
+    {
+      $count = 7;
+    }
+    $ret = $this->createQuery()
+      ->where('member_id = ?', $memberId)
+      ->orderBy('target_date DESC')
+      ->limit($count)
+      ->execute();
+
+    $ary = array();
+    foreach ($ret as $key => $val)
+    {
+      $ary[] = array($key, $val);
+    }
+
+    $res = array();
+    $len = count($ary);
+    for ($i = 0; $i < $len; ++$i)
+    {
+      $k = $len - $i - 1;
+      $res[$ary[$k][0]] = $ary[$k][1];
+    }
+    return $res;
+  }
+
   public function getPrevious($memberId, $date)
   {
     return $this->createQuery()

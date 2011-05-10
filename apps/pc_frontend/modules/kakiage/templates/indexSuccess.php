@@ -19,7 +19,11 @@
 </div>
 <?php endforeach ?>
 
+<ul id="bottomLink">
+<li id="bottomWeekLink" class="weekLink"><?php echo link_to(__('Week'), '@kakiage_week') ?></li>
+<li id="bottomRecentLink" class="recentLink"><?php echo link_to(__('Recent'), '@kakiage_recent?count=7') ?></li>
+</ul>
+
 <div id="bottomEditLink" class="editLink"><?php echo link_to(__('Edit'), '@kakiage_edit_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($date))) ?></div>
-<div id="bottomWeekLink" class="weekLink"><?php echo link_to(__('Week'), '@kakiage_week') ?></div>
 
 </div>
