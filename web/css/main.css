@@ -105,9 +105,23 @@ d#kakiages .kakiage .editLink {
   right: 0px;
   background: #f00;
 }
+#kakiages .kakiage .kakiage_member_image {
+  float: left;
+  width: 36px;
+  max-height: 36px;
+  margin: 8px 0 0 4px;
+}
+#kakiages .kakiage .kakiage_member_image p {
+  text-align: center;
+}
+#kakiages .kakiage .kakiage_member_image img {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
 #kakiages .kakiage .kakiage_member {
   display: inline-block;
-  margin: 8px 8px 0;
+  margin: 8px 4px 0;
   /zoom: 1;
   /display: inline;
 }

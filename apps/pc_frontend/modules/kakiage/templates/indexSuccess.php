@@ -13,6 +13,7 @@
 <?php if ($item->isMine()): ?>
 <div class="editLink"><?php echo link_to(__('Edit'), '@kakiage_edit_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($date))) ?></div>
 <?php endif ?>
+<div class="kakiage_member_image"><p><?php echo op_image_tag_sf_image($item['Member']->getImageFileName(), array('alt' => sprintf('[%s]', $item['Member']), 'size' => '36x36')) ?></p></div>
 <div class="kakiage_member"><?php echo op_link_to_member($item['Member']) ?></div>
 <div class="kakiage_updated_at">(<?php echo __('Updated at') ?>: <?php echo op_format_date($item['updated_at'], 'XDateTimeJa') ?>)</div>
 <div class="kakiage_body"><?php echo op_url_cmd(op_decoration(nl2br($item['body']))) ?></div>
