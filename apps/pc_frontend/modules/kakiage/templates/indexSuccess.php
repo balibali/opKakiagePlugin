@@ -9,10 +9,10 @@
 <div id="topEditLink" class="editLink"><?php echo link_to(__('Edit'), '@kakiage_edit_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($date))) ?></div>
 
 <?php foreach ($list as $item): ?>
-<div id="id_<?php echo $item['Member']->getId() ?>" class="kakiage">
-<?php if ($sf_user->getMemberId() === $item['Member']->getId()): ?>
+<div id="id_<?php echo $item['Member']->getId() ?>" class="kakiage<?php if ($item->isMine()): ?> kakiage_mine<?php endif ?>">
+<?php if ($item->isMine()): ?>
 <div class="editLink"><?php echo link_to(__('Edit'), '@kakiage_edit_date?'.strftime('year=%Y&month=%m&day=%d', strtotime($date))) ?></div>
-<?php endif; ?>
+<?php endif ?>
 <div class="kakiage_member"><?php echo op_link_to_member($item['Member']) ?></div>
 <div class="kakiage_updated_at">(<?php echo __('Updated at') ?>: <?php echo op_format_date($item['updated_at'], 'XDateTimeJa') ?>)</div>
 <div class="kakiage_body"><?php echo op_url_cmd(op_decoration(nl2br($item['body']))) ?></div>

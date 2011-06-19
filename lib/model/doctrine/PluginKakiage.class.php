@@ -12,5 +12,8 @@
  */
 abstract class PluginKakiage extends BaseKakiage
 {
-
+  public function isMine()
+  {
+    return sfContext::getInstance()->getUser()->getMemberId() === $this->getMemberId();
+  }
 }
