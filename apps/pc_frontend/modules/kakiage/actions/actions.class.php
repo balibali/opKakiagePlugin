@@ -26,6 +26,11 @@ class kakiageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
+    if ($request->getHttpHeader('X-PJAX'))
+    {
+      $this->setLayout(false);
+    }
+
     $this->date = $this->checkDateForRequest($request);
     $this->list = Doctrine::getTable('Kakiage')->findByTargetDate($this->date);
   }
