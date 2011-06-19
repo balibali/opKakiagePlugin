@@ -41,10 +41,11 @@ jQuery.noConflict();
       $checkbox.attr("checked", $.cookie(id) || false);
       v.init($checkbox.attr("checked"));
       $checkbox.change(function() {
+        var cookie_path = window.location.pathname.replace(/[0-9\/]+$/, "");
         if ($(this).attr("checked")) {
-          $.cookie(id, true);
+          $.cookie(id, true, { path: cookie_path });
         } else {
-          $.cookie(id, null);
+          $.cookie(id, null, { path: cookie_path });
         }
         window.location = location.href;
       });
