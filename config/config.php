@@ -1,0 +1,2 @@
+<?php
+opWidgetFormRichTextareaOpenPNE::addExtension('opRichTextareaKakiageExtension');
