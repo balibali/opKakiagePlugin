@@ -3,15 +3,14 @@ jQuery.noConflict();
   var kakiage = {};
   kakiage.init = function() {
     kakiage.show_config();
+    kakiage.show_datepicker();
   };
 
   kakiage.show_config = function() {
     var configs = {
       pjax: {
         caption: "pjax",
-        check: function() {
-          return $.pjax != $.noop;
-        },
+        check: function() { return $.support.pjax; },
         init: function(checked) {
           if (!checked)
             $.fn.pjax = $.noop;
@@ -54,6 +53,27 @@ jQuery.noConflict();
 
   kakiage.sort_mine_first = function() {
     $("#kakiages .kakiage_mine").insertBefore($("#kakiages .kakiage:first:not(.kakiage_mine)"));
+  };
+
+  kakiage.show_datepicker = function() {
+    var $h3 = $("#kakiages .partsHeading h3");
+    $('<input type="text" id="dp">').insertAfter($h3).hide();
+    $("#dp").datepicker({
+      dateFormat: "yy/mm/dd",
+      defaultDate: new Date($h3.text().substr(0, 10)),
+      showOn: "button",
+      buttonText: "日付選択",
+      changeMonth: true,
+      showAnim: "fadeIn",
+      showButtonPanel: true,
+      onSelect: function(dateText) {
+        var path = window.location.pathname.replace(/[0-9\/]+$/, "")+"/"+dateText;
+        $.pjax({ url: path, container: "#Center", success: kakiage.init });
+      }
+    });
+    $(".ui-datepicker-trigger")
+      .button({ icons: { primary: 'ui-icon-calendar' }, text: false })
+      .css({ fontSize: "9px", marginLeft: "8px" });
   };
 
   $(function() {
