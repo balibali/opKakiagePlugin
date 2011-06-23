@@ -68,7 +68,7 @@ jQuery.noConflict();
       showButtonPanel: true,
       onSelect: function(dateText) {
         var path = window.location.pathname.replace(/[0-9\/]+$/, "")+"/"+dateText;
-        $.pjax({ url: path, container: "#Center", success: kakiage.init });
+        kakiage.pjax(path);
       }
     });
     $(".ui-datepicker-trigger")
@@ -76,8 +76,28 @@ jQuery.noConflict();
       .css({ fontSize: "9px", marginLeft: "8px" });
   };
 
+  kakiage.pjax = function(path) {
+    $.pjax({ url: path, container: "#Center", success: kakiage.init });
+  };
+
   $(function() {
     kakiage.init();
     $("#kakiages .prev a, #kakiages .next a").pjax("#Center", { success: kakiage.init });
+
+    $(document).keyup(function(e) {
+      if (e.altKey || e.ctrlKey) return;
+
+      switch (e.keyCode) {
+        // left key
+        case 37:
+          kakiage.pjax($("#kakiages .prev a").attr("href"));
+          break;
+
+        // right key
+        case 39:
+          kakiage.pjax($("#kakiages .next a").attr("href"));
+          break;
+      }
+    });
   });
 })(jQuery);
