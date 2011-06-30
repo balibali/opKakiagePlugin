@@ -52,6 +52,7 @@ jQuery.noConflict();
   };
 
   kakiage.sort_mine_first = function() {
+    $("#kakiages .kakiage_mine script").remove();
     $("#kakiages .kakiage_mine").insertBefore($("#kakiages .kakiage:first:not(.kakiage_mine)"));
   };
 
