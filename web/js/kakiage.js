@@ -74,7 +74,7 @@ jQuery.noConflict();
     });
     $(".ui-datepicker-trigger")
       .button({ icons: { primary: 'ui-icon-calendar' }, text: false })
-      .css({ fontSize: "9px", marginLeft: "8px" });
+      .css({ fontSize: "9px", marginLeft: "8px", top: "3px" });
   };
 
   kakiage.pjax = function(path) {
