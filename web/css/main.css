@@ -32,17 +32,18 @@
 }
 #kakiages #topEditLink {
   position: absolute;
-  top: 40px;
+  top: 38px;
   right: 10px;
 }
 #kakiages #bottomEditLink {
   position: absolute;
-  bottom: 0;
+  bottom: 4;
   left: 10px;
 }
 #kakiages #bottomLink {
-  padding: 4px 0;
+  padding: 4px 8px;
   border-top: 1px solid #999;
+  margin: 0 auto;
 }
 #kakiages #bottomLink li,
 #kakiages #bottomLink li a {
@@ -163,4 +164,34 @@ textarea.kakiage_body {
   background: #ff0;
   /zoom: 1;
   /display: inline;
+}
+
+#kakiage_member_list {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#kakiage_member_list table {
+  margin: 0 auto;
+}
+
+#kakiage_member_list td {
+  width: 38px;
+  height: 38px;
+  text-align: center;
+}
+#Center #kakiages .kakiage {
+  height: 400px;
+}
+
+#kakiageForm th {
+  display: none;
+}
+#kakiageForm td textarea {
+  height: 400px;
+}
+
+div#kakiages.parts div.partsHeading div#kakiage_config label {
+  float: left;
+  padding: 0 10px;
 }
