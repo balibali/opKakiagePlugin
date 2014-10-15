@@ -19,8 +19,8 @@ class opRichTextareaKakiageExtension extends opWidgetFormRichTextareaOpenPNEExte
   static public function getButtonOnClickActions()
   {
     return array(
-      'op_kakiage_copy_from_previous_day' => 'var a=$("#kakiage_body"),b=$("textarea.kakiage_body").val();a.val(a.val()+b+"\n");',
-      'op_kakiage_nocall' => 'var a=$("#kakiage_body");a.val("%%nocall"+"\n"+a.val());',
+      'op_kakiage_copy_from_previous_day' => 'var a=$("#kakiage_body"),b=$("textarea.kakiage_body");a.val(a.val()?a.val()+"\n"+b.val():b.val());',
+      'op_kakiage_nocall' => 'var a=$("#kakiage_body");/^%%nocall/.test(a.val())||a.val("%%nocall\n"+a.val());',
     );
   }
 }
